@@ -4,6 +4,12 @@
     * News API
     * Yelp API
 
+3 Pillars: 
+When some action happens, make a fetch request, manipulate the DOM
+
+# Using the Browser vs Postman to make API calls
+
+
 ## Query Parameters
 * limit
 * pagnation 
@@ -18,8 +24,16 @@
 * `.map()`
 * `.filter()`
 
-## Async Await Syntax
-* A synchronous-likek syntax to write your async code!
+## Request Headers
+* When we fetch, we can fetch with an options objects
+* `fetch(url, optionsObject)`
+* Options objects includes key-value pairs like 
+    * `method` the HTTP verb for this request
+    * `headers` additional information about this request
 
 ## Bearer Tokens
 * Another form of Authorization and Authentication 
+
+## Async Await Syntax
+* A synchronous-like syntax to write your async code!
+* An `async` function _always_ returns a promise
