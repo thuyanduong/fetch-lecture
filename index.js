@@ -1,22 +1,27 @@
-//When the giphy form is submitted, fetch to the GIPHY API, add <img> to our #giphy-div
+
 document.addEventListener("DOMContentLoaded", () => {
   let gifsForm = document.querySelector("#giphy-form")
-  gifsForm.addEventListener("submit", fetchGifs);
+  gifsForm.addEventListener("submit", handleGifForm);
 })
 
-function fetchGifs(event){
+//When the giphy form is submitted, 
+function handleGifForm(event){
   event.preventDefault()
   let searchTerm = event.target[0].value
-  console.log(searchTerm)
+  fetchGifs(searchTerm)
+}
+
+//fetch to the GIPHY API, 
+function fetchGifs(searchTerm){
   fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKEYS.giphy}&q=${searchTerm}&limit=3&rating=g`)
   .then(res => { return res.json() })
   .then(data => { 
-    let imageTags = processGifs(data).join("\n")
-    document.querySelector("#giphy-div").innerHTML = imageTags
-
+    processGifs(data)
    })
 }
 
+//add <img> to our #giphy-div
 function processGifs(obj){
-  return obj.data.map(gif => `<img src="${gif.images.original.url}" width="200px"/>`)
+  let imageTags = obj.data.map(gif => `<img src="${gif.images.original.url}" width="200px"/>`).join("\n")
+    document.querySelector("#giphy-div").innerHTML = imageTags
 }
