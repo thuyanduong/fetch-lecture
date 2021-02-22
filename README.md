@@ -25,7 +25,9 @@ When some action happens, make a fetch request, manipulate the DOM
 * `.filter()`
 
 ## Request Headers
-* When we fetch, we can fetch with an options objects
+* When we fetch, we can fetch with two arguments:
+    * url `string`
+    * an options `object`
 * `fetch(url, optionsObject)`
 * Options objects includes key-value pairs like 
     * `method` the HTTP verb for this request
